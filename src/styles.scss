@@ -1,0 +1,107 @@
+:root {
+  --bm-dark:        #0a1628;
+  --bm-dark-mid:    #112240;
+  --bm-primary:     #1a4fa8;
+  --bm-accent:      #4a9eff;
+  --bm-accent-soft: #7ec8e3;
+  --bm-grey-100:    #f1f5f9;
+  --bm-grey-200:    #e2e8f0;
+  --bm-grey-400:    #94a3b8;
+  --bm-grey-600:    #475569;
+  --bm-text:        #1e293b;
+  --bm-text-light:  #e2e8f0;
+  --bm-white:       #ffffff;
+
+  --section-pad: clamp(3rem, 8vw, 6rem) 1.5rem;
+  --container:   min(1200px, 100%);
+  --radius:      12px;
+  --transition:  0.25s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  color: var(--bm-text);
+  background: var(--bm-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Google font — loaded in index.html */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+.container {
+  width: var(--container);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bm-accent);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  margin-bottom: 1rem;
+}
+
+.section-sub {
+  font-size: 1.05rem;
+  color: var(--bm-grey-600);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+/* PrimeNG overrides */
+.p-button-primary {
+  background: var(--bm-accent) !important;
+  border-color: var(--bm-accent) !important;
+}
+.p-button-outlined {
+  border-color: var(--bm-accent) !important;
+  color: var(--bm-accent) !important;
+}
+.p-dialog .p-dialog-header {
+  background: var(--bm-dark) !important;
+  color: var(--bm-white) !important;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.p-dialog .p-dialog-content {
+  padding: 1.5rem 2rem !important;
+}
+.p-dialog .p-dialog-footer {
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+/* Service dialog close button */
+.dialog-close.p-button,
+.dialog-close .p-button {
+  background:   transparent !important;
+  border-color: rgb(90, 180, 180) !important;
+  color:        rgb(90, 180, 180) !important;
+  font-size:    1rem !important;
+  padding:      3px !important;
+
+
+  &:hover {
+    background:   rgba(90, 180, 180, 0.1) !important;
+    border-color: rgb(69, 154, 154) !important;
+    color:        rgb(69, 154, 154) !important;
+  }
+}

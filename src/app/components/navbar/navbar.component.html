@@ -1,0 +1,44 @@
+<header class="navbar" [class.scrolled]="scrolled()">
+  <div class="nav-inner">
+    <a class="logo" (click)="scrollTo('hero')" role="button" tabindex="0">
+      <img src="assets/byte-me-logo.svg" alt="ByteMe PC" class="logo-img" />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="desktop-nav" aria-label="Main navigation">
+      @for (link of navLinks; track link.anchor) {
+        <a class="nav-link" (click)="scrollTo(link.anchor)" role="button" tabindex="0">
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <p-button
+      class="cta-btn desktop-only"
+      label="Get a Quote"
+      size="small"
+      (onClick)="scrollTo('contact')"
+    />
+
+    <!-- Mobile hamburger -->
+    <button class="hamburger" (click)="mobileOpen.set(true)" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<p-drawer [(visible)]="mobileOpen" position="right" header="Menu" styleClass="mobile-drawer">
+  <nav class="mobile-nav">
+    @for (link of navLinks; track link.anchor) {
+      <a class="mobile-link" (click)="scrollTo(link.anchor)" role="button" tabindex="0">
+        {{ link.label }}
+      </a>
+    }
+    <p-button
+      label="Get a Quote"
+      styleClass="w-full mt-4"
+      (onClick)="scrollTo('contact')"
+    />
+  </nav>
+</p-drawer>

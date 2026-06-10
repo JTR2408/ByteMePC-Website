@@ -1,0 +1,43 @@
+<section id="about" class="about-section">
+  <div class="container about-grid">
+
+    <!-- Left: text -->
+    <div class="about-text">
+      <span class="section-label">About Us</span>
+      <h2 class="section-title" style="color: var(--bm-white)">
+        Your Local Tech<br />Repair Experts
+      </h2>
+      <p class="about-desc">
+        ByteMe PC was founded by tech enthusiasts who believe everyone deserves fast,
+        honest, and affordable computer repairs. We're not a faceless call centre —
+        we're real people in your community who genuinely care about getting your tech
+        working again.
+      </p>
+      <p class="about-desc">
+        Whether it's a family laptop that won't start, a gaming rig in need of an upgrade,
+        or a small business PC with a failing drive — we treat every device with the same
+        care and expertise.
+      </p>
+
+      <ul class="highlights">
+        @for (h of highlights; track h.icon) {
+          <li>
+            <span class="hi-icon"><i [class]="'pi ' + h.icon"></i></span>
+            {{ h.text }}
+          </li>
+        }
+      </ul>
+    </div>
+
+    <!-- Right: stats -->
+    <div class="stats-panel">
+      @for (stat of stats; track stat.label) {
+        <div class="stat-card">
+          <div class="stat-val">{{ stat.value }}</div>
+          <div class="stat-lbl">{{ stat.label }}</div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

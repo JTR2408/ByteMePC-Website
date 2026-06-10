@@ -1,0 +1,156 @@
+.contact-section {
+  padding: var(--section-pad);
+  background: linear-gradient(135deg, var(--bm-dark) 0%, var(--bm-primary) 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(74, 158, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74, 158, 255, 0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+  }
+}
+
+.contact-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+/* Info side */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-intro {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.975rem;
+  line-height: 1.8;
+}
+
+.contact-details {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 0.5rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.cd-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(74, 158, 255, 0.15);
+  border: 1px solid rgba(74, 158, 255, 0.2);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  i { color: var(--bm-accent); font-size: 1rem; }
+}
+
+.cd-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.cd-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.cd-value {
+  font-size: 0.95rem;
+  color: var(--bm-white);
+  font-weight: 500;
+
+  &.link {
+    color: var(--bm-accent-soft);
+    transition: color var(--transition);
+
+    &:hover { color: var(--bm-white); }
+  }
+}
+
+/* Form side */
+.contact-form {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: calc(var(--radius) * 1.5);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.03em;
+  }
+}
+
+/* PrimeNG input overrides inside dark form */
+::ng-deep .contact-form {
+  .p-inputtext,
+  .p-textarea {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    color: var(--bm-white) !important;
+    border-radius: 8px;
+
+    &::placeholder { color: rgba(255, 255, 255, 0.35) !important; }
+    &:focus {
+      border-color: var(--bm-accent) !important;
+      box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.2) !important;
+    }
+  }
+}
+
+::ng-deep .submit-btn.p-button {
+  background: var(--bm-accent) !important;
+  border-color: var(--bm-accent) !important;
+  color: var(--bm-dark) !important;
+  font-weight: 700;
+  border-radius: var(--radius);
+  gap: 0.5rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+
+  &:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(74, 158, 255, 0.4);
+  }
+
+  &:disabled { opacity: 0.5; cursor: not-allowed; }
+}

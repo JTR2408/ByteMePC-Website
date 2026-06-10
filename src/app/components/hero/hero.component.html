@@ -1,0 +1,71 @@
+<section id="hero" class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="grid-overlay"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="badge">
+      <i class="pi pi-verified"></i>
+      Trusted Local Phone &amp; PC/Mobile Repair Specialists
+    </div>
+
+    <h1 class="hero-title">
+      Fast, Reliable<br />
+      <span class="accent">PC/Mobile Repair</span><br />
+      You Can Trust
+    </h1>
+
+    <p class="hero-sub">
+      Friendly expert Phone, Tablet, Console &amp; PC repairs, Hardware upgrades and Custom builds
+      &mdash; Most repairs completed same day.
+    </p>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">5000<span class="accent">+</span></span>
+        <span class="stat-label">Repairs Completed</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat">
+        <span class="stat-num">11<span class="accent">+</span></span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat">
+        <span class="stat-num">5<span class="accent">★</span></span>
+        <span class="stat-label">Average Rating</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat">
+        <span class="stat-num">Same<span class="accent">-Day</span></span>
+        <span class="stat-label">Most Repairs</span>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <p-button
+        label="Get a Free Quote"
+        size="large"
+        (onClick)="scrollTo('contact')"
+        styleClass="cta-primary"
+      >
+        <ng-template #icon>
+          <i class="pi pi-arrow-right"></i>
+        </ng-template>
+      </p-button>
+      <p-button
+        label="Our Services"
+        size="large"
+        variant="outlined"
+        (onClick)="scrollTo('services')"
+        styleClass="cta-secondary"
+      />
+    </div>
+  </div>
+
+  <div class="scroll-indicator" aria-hidden="true">
+    <span></span>
+  </div>
+</section>

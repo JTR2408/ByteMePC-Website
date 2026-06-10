@@ -1,0 +1,134 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.25rem 1.5rem;
+  transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+
+  /* Over the light hero */
+  .nav-link { color: rgba(30, 41, 59, 0.7); }
+  .nav-link:hover { color: rgba(90, 180, 180 ,1); }
+
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(12px);
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 2px 16px rgba(30, 41, 59, 0.1);
+
+    .nav-link { color: rgba(30, 41, 59, 0.7); }
+    .nav-link:hover { color: var(--bm-primary); }
+  }
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin-inline: auto;
+  gap: 2rem;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  display: block;
+  transition: opacity var(--transition);
+
+  &:hover { opacity: 0.85; }
+}
+
+/* Desktop nav */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-link {
+  font-size: 1.3rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color var(--transition);
+  user-select: none;
+}
+
+/* Mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--bm-white);
+    border-radius: 2px;
+    transition: var(--transition);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .desktop-nav, .desktop-only { display: none; }
+  .hamburger { display: flex; }
+}
+
+/* Mobile drawer */
+::ng-deep .mobile-drawer {
+  .p-drawer-header { background: var(--bm-dark); color: var(--bm-white); }
+  .p-drawer-content { background: var(--bm-dark); padding: 1.5rem; }
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mobile-link {
+  display: block;
+  padding: 1rem 0.75rem;
+  color: var(--bm-text-light);
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background var(--transition), color var(--transition);
+
+  &:hover {
+    background: rgba(74, 158, 255, 0.1);
+    color: var(--bm-accent);
+  }
+}
+
+::ng-deep .cta-btn .p-button {
+  font-size: 1.1rem;
+  background: rgb(90, 180, 180) !important;
+  border-color: rgb(90, 180, 180) !important;
+  color: #ffffff !important;
+  padding: 0.15rem;
+
+  &:hover {
+    background: rgb(69, 154, 154) !important;
+    border-color: var(--bm-dark) !important;
+    color: #ffffff !important;
+  }
+}

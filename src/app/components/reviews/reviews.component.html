@@ -1,0 +1,104 @@
+<section id="reviews" class="reviews-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Google Reviews</span>
+      <h2 class="section-title">What Our Customers Say</h2>
+
+      @if (!loading() && overallRating() > 0) {
+        <div class="overall-rating">
+          <span class="overall-score">{{ overallRating().toFixed(1) }}</span>
+          <div class="overall-stars">
+            @for (star of stars(5); track star) {
+              <i class="pi pi-star-fill" [class.active]="star <= overallRating()"></i>
+            }
+          </div>
+          <span class="overall-count">from {{ totalReviews() }} reviews</span>
+        </div>
+      }
+    </div>
+
+    <!-- Loading skeletons -->
+    @if (loading()) {
+      <div class="skeleton-row">
+        @for (i of [1, 2, 3]; track i) {
+          <div class="skeleton-card">
+            <div class="sk-header">
+              <p-skeleton shape="circle" size="3rem" />
+              <div class="sk-meta">
+                <p-skeleton width="120px" height="1rem" />
+                <p-skeleton width="80px" height="0.75rem" styleClass="mt-1" />
+              </div>
+            </div>
+            <p-skeleton width="100%" height="0.875rem" styleClass="mt-3" />
+            <p-skeleton width="80%" height="0.875rem" styleClass="mt-2" />
+            <p-skeleton width="90%" height="0.875rem" styleClass="mt-2" />
+          </div>
+        }
+      </div>
+    }
+
+    <!-- Reviews carousel (configured + has reviews) -->
+    @if (!loading() && configured() && reviews().length > 0) {
+      <p-carousel
+        [value]="reviews()"
+        [numVisible]="3"
+        [numScroll]="1"
+        [circular]="true"
+        [autoplayInterval]="5000"
+        [responsiveOptions]="carouselResponsive"
+        styleClass="reviews-carousel"
+      >
+        <ng-template let-review #item>
+          <div class="review-card">
+            <div class="review-header">
+              <p-avatar
+                [label]="initials(review.author_name)"
+                [image]="review.profile_photo_url"
+                shape="circle"
+                size="large"
+                styleClass="reviewer-avatar"
+              />
+              <div class="reviewer-meta">
+                <span class="reviewer-name">{{ review.author_name }}</span>
+                <span class="review-time">{{ review.relative_time_description }}</span>
+              </div>
+            </div>
+            <div class="review-stars">
+              @for (star of stars(5); track star) {
+                <i class="pi pi-star-fill" [class.active]="star <= review.rating"></i>
+              }
+            </div>
+            <p class="review-text">{{ review.text }}</p>
+          </div>
+        </ng-template>
+      </p-carousel>
+    }
+
+    <!-- Not configured yet -->
+    @if (!loading() && !configured()) {
+      <div class="placeholder-grid">
+        @for (item of placeholders; track item.name) {
+          <div class="review-card">
+            <div class="review-header">
+              <div class="placeholder-avatar">{{ initials(item.name) }}</div>
+              <div class="reviewer-meta">
+                <span class="reviewer-name">{{ item.name }}</span>
+                <span class="review-time">{{ item.time }}</span>
+              </div>
+            </div>
+            <div class="review-stars">
+              @for (star of stars(5); track star) {
+                <i class="pi pi-star-fill active"></i>
+              }
+            </div>
+            <p class="review-text">{{ item.text }}</p>
+          </div>
+        }
+        <div class="configure-note">
+          <i class="pi pi-info-circle"></i>
+          Add <code>GOOGLE_PLACES_API_KEY</code> and <code>GOOGLE_PLACE_ID</code> to show live reviews.
+        </div>
+      </div>
+    }
+  </div>
+</section>

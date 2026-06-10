@@ -1,0 +1,77 @@
+<section id="services" class="services-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Expert Tech Services</h2>
+      <p class="section-sub">
+        From quick fixes to complex repairs — we've got your tech covered.
+        Most repairs completed same day.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      @for (service of services; track service.id) {
+        <div class="service-card" (click)="openDialog(service)" role="button" tabindex="0"
+             (keydown.enter)="openDialog(service)">
+          <div class="card-inner">
+            @if (service.badge) {
+              <span class="card-badge">{{ service.badge }}</span>
+            }
+            <div class="card-icon">
+              <i [class]="'pi ' + service.icon"></i>
+            </div>
+            <h3 class="card-title">{{ service.title }}</h3>
+            <p class="card-desc">{{ service.shortDesc }}</p>
+            <span class="card-cta">
+              Learn more <i class="pi pi-arrow-right"></i>
+            </span>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Service detail dialog -->
+@if (activeService()) {
+  <p-dialog
+    [(visible)]="dialogVisible"
+    [header]="activeService()!.title"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    styleClass="service-dialog"
+    [style]="{ width: 'min(560px, 95vw)' }"
+  >
+    <div class="dialog-body">
+      <div class="dialog-icon">
+        <i [class]="'pi ' + activeService()!.icon"></i>
+      </div>
+      <p class="dialog-desc">{{ activeService()!.fullDesc }}</p>
+
+      <ul class="dialog-features">
+        @for (feature of activeService()!.features; track feature) {
+          <li>
+            <i class="pi pi-check-circle"></i>
+            {{ feature }}
+          </li>
+        }
+      </ul>
+    </div>
+
+    <ng-template #footer>
+      <p-button
+        label="Get a Quote"
+        (onClick)="dialogVisible.set(false)"
+        styleClass="dialog-cta"
+      />
+      <p-button
+        label="Close"
+        variant="outlined"
+        severity="secondary"
+        (onClick)="dialogVisible.set(false)"
+        styleClass="dialog-close"
+      />
+    </ng-template>
+  </p-dialog>
+}

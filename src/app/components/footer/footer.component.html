@@ -1,0 +1,49 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <img src="assets/byte-me-logo.svg" alt="ByteMe PC" class="footer-logo-img" />
+      </div>
+      <p class="footer-tagline">
+        Fast, honest, and affordable tech repair — right on your doorstep.
+      </p>
+      <div class="social-links">
+        @for (social of socials; track social.label) {
+          <a [href]="social.href" [attr.aria-label]="social.label" class="social-btn" target="_blank" rel="noopener">
+            <i [class]="'pi ' + social.icon"></i>
+          </a>
+        }
+      </div>
+    </div>
+
+    <div class="footer-nav">
+      <p class="footer-heading">Quick Links</p>
+      <ul>
+        @for (link of links; track link.anchor) {
+          <li>
+            <a (click)="scrollTo(link.anchor)" role="button" tabindex="0">{{ link.label }}</a>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><i class="pi pi-phone"></i> <a href="tel:01234567890">01234 567890</a></li>
+        <li><i class="pi pi-envelope"></i> <a href="mailto:hello@bytemepc.co.uk">hello&#64;bytemepc.co.uk</a></li>
+        <li><i class="pi pi-map-marker"></i> 123 Tech Street, Town</li>
+        <li><i class="pi pi-clock"></i> Mon–Sat: 9am – 6pm</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {{ year }} ByteMe PC. All rights reserved.</p>
+    <p class="footer-legal">
+      <a href="#">Privacy Policy</a> &middot; <a href="#">Terms of Service</a>
+    </p>
+  </div>
+</footer>

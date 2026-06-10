@@ -1,0 +1,96 @@
+<section id="contact" class="contact-section">
+  <p-toast position="top-right" />
+
+  <div class="container contact-grid">
+
+    <!-- Left: info -->
+    <div class="contact-info">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title" style="color: var(--bm-white)">
+        Ready to Fix<br />Your Tech?
+      </h2>
+      <p class="contact-intro">
+        Drop us a message and we'll get back to you as soon as possible.
+        For urgent repairs, give us a call.
+      </p>
+
+      <ul class="contact-details">
+        @for (item of contactDetails; track item.label) {
+          <li>
+            <span class="cd-icon"><i [class]="'pi ' + item.icon"></i></span>
+            <div class="cd-body">
+              <span class="cd-label">{{ item.label }}</span>
+              @if (item.href) {
+                <a [href]="item.href" class="cd-value link">{{ item.value }}</a>
+              } @else {
+                <span class="cd-value">{{ item.value }}</span>
+              }
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <!-- Right: form -->
+    <form class="contact-form" (ngSubmit)="submit()" #contactForm="ngForm">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input
+          id="name"
+          pInputText
+          type="text"
+          placeholder="Jane Smith"
+          [ngModel]="name()"
+          (ngModelChange)="name.set($event)"
+          name="name"
+          required
+          class="w-full"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input
+          id="phone"
+          pInputText
+          type="tel"
+          placeholder="07700 900000"
+          [ngModel]="phone()"
+          (ngModelChange)="phone.set($event)"
+          name="phone"
+          required
+          class="w-full"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="message">How can we help?</label>
+        <textarea
+          id="message"
+          pTextarea
+          placeholder="Describe the issue with your device..."
+          [ngModel]="message()"
+          (ngModelChange)="message.set($event)"
+          name="message"
+          rows="5"
+          required
+          class="w-full"
+        ></textarea>
+      </div>
+
+      <p-button
+        type="submit"
+        label="Send Message"
+        [loading]="sending()"
+        [disabled]="!name() || !phone() || !message()"
+        styleClass="submit-btn w-full"
+        size="large"
+      >
+        <ng-template #icon>
+          <i class="pi pi-send"></i>
+        </ng-template>
+      </p-button>
+    </form>
+
+  </div>
+</section>

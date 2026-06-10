@@ -1,0 +1,172 @@
+.services-section {
+  padding: var(--section-pad);
+  background: var(--bm-grey-100);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  .section-sub { margin-inline: auto; }
+}
+
+/* Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 1.25rem;
+}
+
+.section-label {
+  color: rgb(90, 180, 180);
+}
+
+/* Card */
+.service-card {
+  cursor: pointer;
+  border-radius: var(--radius);
+  background: var(--bm-white);
+  border: 1px solid var(--bm-grey-200);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(26, 79, 168, 0.12);
+    border-color: rgb(90, 180, 180);
+
+    .card-cta { color: rgb(69, 154, 154); gap: 0.6rem; }
+    .card-icon { background: rgb(69, 154, 154); i { color: var(--bm-white); } }
+  }
+}
+
+.card-inner {
+  padding: 1.75rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+}
+
+.card-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgb(90, 180, 180);
+  color: var(--bm-white);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 100px;
+}
+
+.card-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(74, 158, 255, 0.1);
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  transition: background var(--transition);
+
+  i {
+    font-size: 1.35rem;
+    color: rgb(90, 180, 180);
+    transition: color var(--transition);
+  }
+}
+
+.card-title {
+  font-size: 1.1rem;
+  color: var(--bm-text);
+  font-weight: 700;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--bm-grey-600);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgb(90, 180, 180);
+  transition: color var(--transition), gap var(--transition);
+
+  i { font-size: 0.75rem; }
+}
+
+/* Dialog */
+::ng-deep .service-dialog {
+  .p-dialog-header {
+    background: rgb(69, 154, 154) !important;
+    color: var(--bm-white) !important;
+    font-size: 1.1rem;
+    padding: 1.25rem 1.5rem !important;
+  }
+
+  .p-dialog-footer {
+    padding: 1rem 1.5rem !important;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+  }
+}
+
+.dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.dialog-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(74, 158, 255, 0.12);
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+
+  i { font-size: 1.6rem; color: rgb(90, 180, 180); }
+}
+
+.dialog-desc {
+  font-size: 0.95rem;
+  color: var(--bm-grey-600);
+  line-height: 1.75;
+}
+
+.dialog-features {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--bm-text);
+
+    i { color: rgb(90, 180, 180); font-size: 0.9rem; flex-shrink: 0; }
+  }
+
+  @media (max-width: 480px) { grid-template-columns: 1fr; }
+}
+
+::ng-deep .dialog-cta.p-button {
+  background: rgb(90, 180, 180) !important;
+  border-color: rgb(90, 180, 180) !important;
+  color: var(--bm-dark) !important;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 3px;
+}
