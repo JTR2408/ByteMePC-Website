@@ -19,8 +19,8 @@ export class FooterComponent {
   ];
 
   readonly socials = [
-    { icon: 'pi-facebook', href: '#', label: 'Facebook' },
-    { icon: 'pi-google',   href: '#', label: 'Google'   },
+    { icon: 'pi-facebook', href: 'https://www.facebook.com/bytemene/', label: 'Facebook' },
+    { icon: 'pi-google',   href: 'https://share.google/DYClB96hYQhleEuiz', label: 'Google'   },
   ];
 
   scrollTo(anchor: string): void {

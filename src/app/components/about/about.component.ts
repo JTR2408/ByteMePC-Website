@@ -10,8 +10,8 @@ import { DividerModule } from 'primeng/divider';
 })
 export class AboutComponent {
   readonly stats = [
-    { value: '500+', label: 'Repairs completed' },
-    { value: '5★',   label: 'Average Google rating' },
+    { value: '5000+', label: 'Repairs completed' },
+    { value: '5★',   label: 'On Facebook & Google' },
     { value: '<24h', label: 'Average turnaround' },
     { value: '100%', label: 'Transparent pricing' },
   ];
@@ -19,7 +19,7 @@ export class AboutComponent {
   readonly highlights = [
     { icon: 'pi-clock',        text: 'Same-day repairs on most common issues' },
     { icon: 'pi-pound',        text: 'No-fix, no-fee guarantee' },
-    { icon: 'pi-map-marker',   text: 'Local, walk-in friendly service' },
+    { icon: 'pi-map-marker',   text: 'Local, friendly service' },
     { icon: 'pi-lock',         text: 'Your data stays private — always' },
   ];
 }

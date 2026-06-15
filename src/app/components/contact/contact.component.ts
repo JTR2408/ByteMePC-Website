@@ -24,9 +24,9 @@ export class ContactComponent {
   sending = signal(false);
 
   readonly contactDetails = [
-    { icon: 'pi-phone',      label: 'Phone',   value: '01234 567890',          href: 'tel:01234567890'             },
-    { icon: 'pi-envelope',   label: 'Email',   value: 'hello@bytemepc.co.uk',  href: 'mailto:hello@bytemepc.co.uk' },
-    { icon: 'pi-map-marker', label: 'Address', value: '123 Tech Street, Town', href: null                          },
+    { icon: 'pi-phone',      label: 'Phone',   value: '01234 567890',          href: 'tel:'             },
+    { icon: 'pi-envelope',   label: 'Email',   value: 'repairs@bytemcpc.com',  href: 'mailto:repairs@bytemepc.com' },
+    { icon: 'pi-map-marker', label: 'Address', value: 'Craghead, DH9 6EB', href: null                          },
     { icon: 'pi-clock',      label: 'Hours',   value: 'Mon–Sat: 9am – 6pm',    href: null                          },
   ];
 
