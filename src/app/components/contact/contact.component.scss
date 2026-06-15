@@ -1,6 +1,6 @@
 .contact-section {
   padding: var(--section-pad);
-  background: linear-gradient(135deg, var(--bm-dark) 0%, var(--bm-primary) 100%);
+  background: linear-gradient(-135deg, rgb(69,154,154) 0%, rgb(44, 105, 105) 100%);
   position: relative;
   overflow: hidden;
 
@@ -139,13 +139,15 @@
 }
 
 ::ng-deep .submit-btn.p-button {
-  background: var(--bm-accent) !important;
+  background: rgb(90, 180, 180) !important;
   border-color: var(--bm-accent) !important;
   color: var(--bm-dark) !important;
   font-weight: 700;
   border-radius: var(--radius);
   gap: 0.5rem;
   transition: transform var(--transition), box-shadow var(--transition);
+  padding: 3px;
+  size: 1rem !important;
 
   &:not(:disabled):hover {
     transform: translateY(-2px);

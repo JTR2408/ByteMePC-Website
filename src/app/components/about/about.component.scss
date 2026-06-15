@@ -1,6 +1,6 @@
 .about-section {
   padding: var(--section-pad);
-  background: var(--bm-dark-mid);
+  background: rgb(44, 105, 105);
 }
 
 .about-grid {
@@ -23,7 +23,7 @@
 
 .about-desc {
   font-size: 0.975rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: rgb(255, 255, 255);
   line-height: 1.8;
 }
 
@@ -39,7 +39,7 @@
     display: flex;
     align-items: center;
     gap: 0.9rem;
-    color: var(--bm-text-light);
+    color: white;
     font-size: 0.92rem;
   }
 }
@@ -47,13 +47,13 @@
 .hi-icon {
   width: 36px;
   height: 36px;
-  background: rgba(74, 158, 255, 0.15);
+  background: rgba(90, 180, 180, 0.15);
   border-radius: 8px;
   display: grid;
   place-items: center;
   flex-shrink: 0;
 
-  i { color: var(--bm-accent); font-size: 0.9rem; }
+  i { color: white !important;  font-size: 0.9rem;}
 }
 
 /* Stats panel */
@@ -61,18 +61,19 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  // color: rgb(90, 180, 180) !important;
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(90, 180, 180, 0.04);
+  border: 1px solid rgba(12, 26, 26, 0.2);
   border-radius: var(--radius);
   padding: 1.75rem 1.5rem;
   text-align: center;
   transition: border-color var(--transition), background var(--transition);
 
   &:hover {
-    background: rgba(74, 158, 255, 0.08);
+    background: rgba(90, 180, 180, 0.08);
     border-color: rgba(74, 158, 255, 0.3);
   }
 }
@@ -80,14 +81,14 @@
 .stat-val {
   font-size: 2.25rem;
   font-weight: 800;
-  color: var(--bm-accent);
+   color: rgb(255, 255, 255);
   line-height: 1;
   margin-bottom: 0.4rem;
 }
 
 .stat-lbl {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  color: rgb(111, 207, 207);
 }
