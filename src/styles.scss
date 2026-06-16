@@ -89,6 +89,15 @@ img { max-width: 100%; display: block; }
   border-radius: 0 0 var(--radius) var(--radius);
 }
 
+/* Toast — prevent overflow on mobile */
+@media (max-width: 640px) {
+  .p-toast {
+    width: calc(100vw - 2rem) !important;
+    left: 1rem !important;
+    right: 1rem !important;
+  }
+}
+
 /* Service dialog close button */
 .dialog-close.p-button,
 .dialog-close .p-button {
