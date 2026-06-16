@@ -8,7 +8,6 @@
   margin-bottom: 3rem;
 }
 
-/* Overall rating badge */
 .overall-rating {
   display: inline-flex;
   align-items: center;
@@ -33,7 +32,6 @@
   i {
     font-size: 0.9rem;
     color: var(--bm-grey-200);
-
     &.active { color: #f59e0b; }
   }
 }
@@ -43,28 +41,12 @@
   color: var(--bm-grey-400);
 }
 
-/* Skeleton loading row */
-.skeleton-row {
+.reviews-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
   gap: 1.25rem;
 }
 
-.skeleton-card {
-  background: var(--bm-grey-100);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-}
-
-.sk-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.sk-meta { flex: 1; }
-
-/* Review cards */
 .review-card {
   background: var(--bm-white);
   border: 1px solid var(--bm-grey-200);
@@ -73,8 +55,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.875rem;
-  margin: 0.5rem;
-  height: calc(100% - 1rem);
   transition: box-shadow var(--transition);
 
   &:hover { box-shadow: 0 8px 30px rgba(26, 79, 168, 0.1); }
@@ -86,9 +66,15 @@
   gap: 0.75rem;
 }
 
-::ng-deep .reviewer-avatar {
-  background: var(--bm-primary) !important;
-  color: var(--bm-white) !important;
+.reviewer-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--bm-primary);
+  color: var(--bm-white);
+  display: grid;
+  place-items: center;
+  font-size: 0.85rem;
   font-weight: 700;
   flex-shrink: 0;
 }
@@ -117,7 +103,6 @@
   i {
     font-size: 0.85rem;
     color: var(--bm-grey-200);
-
     &.active { color: #f59e0b; }
   }
 }
@@ -127,60 +112,4 @@
   color: var(--bm-grey-600);
   line-height: 1.7;
   flex: 1;
-}
-
-/* Placeholder grid (no API key yet) */
-.placeholder-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-  gap: 1.25rem;
-  position: relative;
-}
-
-.placeholder-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--bm-primary);
-  color: var(--bm-white);
-  display: grid;
-  place-items: center;
-  font-size: 0.85rem;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.configure-note {
-  grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  background: rgba(74, 158, 255, 0.06);
-  border: 1px dashed rgba(74, 158, 255, 0.3);
-  border-radius: var(--radius);
-  padding: 0.875rem 1.25rem;
-  font-size: 0.8rem;
-  color: var(--bm-grey-600);
-
-  i { color: var(--bm-accent); }
-  code {
-    background: var(--bm-grey-100);
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    color: var(--bm-primary);
-  }
-}
-
-/* Carousel tweaks */
-::ng-deep .reviews-carousel {
-  .p-carousel-prev,
-  .p-carousel-next {
-    color: var(--bm-primary) !important;
-    &:hover { background: rgba(74, 158, 255, 0.1) !important; }
-  }
-  .p-carousel-indicator button {
-    background: var(--bm-grey-200) !important;
-    &.p-highlight { background: var(--bm-accent) !important; }
-  }
 }

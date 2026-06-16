@@ -1,50 +1,45 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CarouselModule } from 'primeng/carousel';
-import { SkeletonModule } from 'primeng/skeleton';
-import { AvatarModule } from 'primeng/avatar';
-import { ReviewsService, Review } from '../../services/reviews.service';
+
+interface Review {
+  name: string;
+  rating: number;
+  text: string;
+}
 
 @Component({
   selector: 'app-reviews',
   standalone: true,
-  imports: [CommonModule, CarouselModule, SkeletonModule, AvatarModule],
+  imports: [CommonModule],
   templateUrl: './reviews.component.html',
   styleUrl: './reviews.component.scss',
 })
-export class ReviewsComponent implements OnInit {
-  private reviewsService = inject(ReviewsService);
+export class ReviewsComponent {
+  readonly overallRating = 5.0;
+  readonly totalReviews = 3;
 
-  reviews = signal<Review[]>([]);
-  overallRating = signal(0);
-  totalReviews = signal(0);
-  loading = signal(true);
-  configured = signal(false);
-
-  readonly carouselResponsive = [
-    { breakpoint: '1024px', numVisible: 2, numScroll: 1 },
-    { breakpoint: '640px',  numVisible: 1, numScroll: 1 },
+  // TODO: replace with live ReviewsService + Google Places API when client is ready (see src/app/services/reviews.service.ts)
+  readonly reviews: Review[] = [
+    {
+      name: 'Rachael Bach',
+      rating: 5,
+      text: "Great service. Highly recommended for all your technical problems. My laptop recently died, after taking a look John kindly advised me the best options for a new laptop and organised the data transfer so I didn't lose all my coursework. Brilliant price and I had my new laptop all ready in a matter of days. Thanks again, I'll definitely use your service again 🙂",
+    },
+    {
+      name: 'Phill Hawthorne',
+      rating: 5,
+      text: 'Absolutely brilliant, replaced battery on my phone and was spot on with everything that was done, good price and done in quick time, will definitely recommend to friends and family and will use again.',
+    },
+    {
+      name: "Helen O'Neil",
+      rating: 5,
+      text: "Nice guy. Sorted my computer out quickly. He explained what was wrong and why. All fixed on the same day. A good reasonable price. I would definitely use his services again and would recommend him to my friends and family. Very happy.",
+    },
   ];
-
-  ngOnInit(): void {
-    this.reviewsService.getReviews().subscribe((data) => {
-      this.reviews.set(data.reviews);
-      this.overallRating.set(data.rating);
-      this.totalReviews.set(data.total);
-      this.configured.set(data.configured);
-      this.loading.set(false);
-    });
-  }
 
   stars(rating: number): number[] {
     return Array.from({ length: 5 }, (_, i) => i + 1);
   }
-
-  readonly placeholders = [
-    { name: 'Sarah M.', time: 'a week ago', text: 'Incredibly fast and professional service. My laptop had a cracked screen and they had it fixed same day. Wouldn\'t go anywhere else!' },
-    { name: 'James T.', time: '2 weeks ago', text: 'Got rid of a nasty virus that had slowed my PC to a crawl. Transparent pricing and they even explained what they\'d done. Great service.' },
-    { name: 'Rachel K.', time: 'a month ago', text: 'Custom build came out absolutely perfect. The team clearly knew their stuff and kept me updated throughout. 100% recommend.' },
-  ];
 
   initials(name: string): string {
     return name
