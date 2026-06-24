@@ -1,6 +1,7 @@
 .about-section {
   padding: var(--section-pad);
   background: rgb(44, 105, 105);
+  overflow-x: hidden;
 }
 
 .about-grid {
@@ -75,6 +76,10 @@
   &:hover {
     background: rgba(90, 180, 180, 0.08);
     border-color: rgba(74, 158, 255, 0.3);
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.25rem 0.75rem;
   }
 }
 

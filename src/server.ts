@@ -12,6 +12,14 @@ const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
 app.use(express.json());
+
+app.use((req, res, next) => {
+  if (req.hostname === 'www.bytemepc.com') {
+    return res.redirect(301, `https://bytemepc.com${req.originalUrl}`);
+  }
+  next();
+});
+
 const angularApp = new AngularNodeAppEngine();
 
 const GOOGLE_API_KEY = process.env['GOOGLE_PLACES_API_KEY'] ?? '';
@@ -24,9 +32,9 @@ const SMTP_PASS   = process.env['SMTP_PASS'] ?? '';
 const CONTACT_TO  = process.env['CONTACT_TO'] ?? '';
 
 app.post('/api/contact', async (req, res) => {
-  const { name, phone, message } = req.body as { name?: string; phone?: string; message?: string };
+  const { name, phone, email, message } = req.body as { name?: string; phone?: string; email?: string; message?: string };
 
-  if (!name || !phone || !message) {
+  if (!name || (!phone && !email) || !message) {
     res.status(400).json({ error: 'Missing required fields' });
     return;
   }
@@ -48,11 +56,12 @@ app.post('/api/contact', async (req, res) => {
       from: `"ByteMe PC Website" <${SMTP_USER}>`,
       to: CONTACT_TO,
       subject: `New enquiry from ${name}`,
-      text: `Name: ${name}\nPhone: ${phone}\n\nMessage:\n${message}`,
+      text: `Name: ${name}\n${phone ? `Phone: ${phone}\n` : ''}${email ? `Email: ${email}\n` : ''}\nMessage:\n${message}`,
       html: `
         <h2 style="color:#1a4fa8">New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
+        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
+        ${email ? `<p><strong>Email:</strong> ${email}</p>` : ''}
         <hr/>
         <p><strong>Message:</strong></p>
         <p style="white-space:pre-wrap">${message}</p>

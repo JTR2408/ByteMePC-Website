@@ -21,7 +21,7 @@
             <div class="cd-body">
               <span class="cd-label">{{ item.label }}</span>
               @if (item.href) {
-                <a [href]="item.href" class="cd-value link">{{ item.value }}</a>
+                <a [href]="item.href" class="cd-value link" [target]="item.href!.startsWith('https') ? '_blank' : '_self'" rel="noopener">{{ item.value }}</a>
               } @else {
                 <span class="cd-value">{{ item.value }}</span>
               }
@@ -49,7 +49,7 @@
       </div>
 
       <div class="form-group">
-        <label for="phone">Phone Number</label>
+        <label for="phone">Phone Number <span class="field-hint">at least one required</span></label>
         <input
           id="phone"
           pInputText
@@ -58,9 +58,29 @@
           [ngModel]="phone()"
           (ngModelChange)="phone.set($event)"
           name="phone"
-          required
+          maxlength="13"
           class="w-full"
         />
+        @if (phone() && !phoneValid) {
+          <span class="field-error">Please enter a valid phone number</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address <span class="field-hint">at least one required</span></label>
+        <input
+          id="email"
+          pInputText
+          type="email"
+          placeholder="you@example.com"
+          [ngModel]="email()"
+          (ngModelChange)="email.set($event)"
+          name="email"
+          class="w-full"
+        />
+        @if (email() && !emailValid) {
+          <span class="field-error">Please enter a valid email address</span>
+        }
       </div>
 
       <div class="form-group">
@@ -82,7 +102,7 @@
         type="submit"
         label="Send Message"
         [loading]="sending()"
-        [disabled]="!name() || !phone() || !message()"
+        [disabled]="!formValid"
         styleClass="submit-btn w-full"
         size="large"
       >

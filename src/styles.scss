@@ -78,23 +78,32 @@ img { max-width: 100%; display: block; }
   color: var(--bm-accent) !important;
 }
 .p-dialog .p-dialog-header {
-  background: var(--bm-dark) !important;
+  background: rgb(90, 180, 180) !important;
   color: var(--bm-white) !important;
   border-radius: var(--radius) var(--radius) 0 0;
+  padding: 1.25rem 1.5rem !important;
+
+  .p-dialog-header-actions {
+    margin: 0.5rem;
+  }
 }
 .p-dialog .p-dialog-content {
   padding: 1.5rem 2rem !important;
 }
 .p-dialog .p-dialog-footer {
   border-radius: 0 0 var(--radius) var(--radius);
+  padding: 0.75rem 1.25rem !important;
 }
 
-/* Toast — prevent overflow on mobile */
+/* Toast — constrain size on mobile */
+.p-toast {
+  max-width: 280px !important;
+}
+
 @media (max-width: 640px) {
   .p-toast {
-    width: calc(100vw - 2rem) !important;
-    left: 1rem !important;
-    right: 1rem !important;
+    max-width: 240px !important;
+    right: 0.75rem !important;
   }
 }
 
@@ -105,7 +114,7 @@ img { max-width: 100%; display: block; }
   border-color: rgb(90, 180, 180) !important;
   color:        rgb(90, 180, 180) !important;
   font-size:    1rem !important;
-  padding:      3px !important;
+  padding:      0.1875rem !important;
 
 
   &:hover {

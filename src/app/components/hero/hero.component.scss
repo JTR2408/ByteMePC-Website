@@ -184,5 +184,8 @@
   .hero-actions { flex-direction: column; }
   .stat-divider { display: none; }
   .hero-stats { gap: 1.25rem; }
+}
+
+@media (max-width: 768px) {
   .scroll-indicator { display: none; }
 }

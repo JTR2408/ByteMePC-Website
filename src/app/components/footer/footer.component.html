@@ -33,7 +33,7 @@
       <ul>
         <li><i class="pi pi-phone"></i> <a href="tel:07807174740">07807 174740</a></li>
         <li><i class="pi pi-envelope"></i> <a href="mailto:repairs@bytemepc.com">repairs&#64;bytemepc.com</a></li>
-        <li><i class="pi pi-map-marker"></i> Craghead, DH9 6EB</li>
+        <li><i class="pi pi-map-marker"></i> <a href="https://www.google.com/maps/place/BYTE+ME+PC+%2F+SMARTPHONE+REPAIRS+NORTH+EAST/@54.8532784,-1.6639249,162m/data=!3m1!1e3!4m6!3m5!1s0x487e7ed70100db97:0x4db77da3aef1c15e!8m2!3d54.8532934!4d-1.6637798!16s%2Fg%2F11bc96j3b6?entry=ttu&g_ep=EgoyMDI2MDYyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Craghead, DH9 6EB</a></li>
         <li><i class="pi pi-clock"></i> Mon–Sat: 9am – 6pm</li>
       </ul>
     </div>
@@ -41,9 +41,51 @@
   </div>
 
   <div class="footer-bottom">
-    <p>&copy; {{ year }} Byte Me PC / Smart Phone Repairs. All rights reserved.</p>
+    <p>&copy; {{ year }} Byte Me PC / Smart Phone Repairs North East. All rights reserved.</p>
     <p class="footer-legal">
-      <a href="#">Privacy Policy</a> &middot; <a href="#">Terms of Service</a>
+      <a (click)="policyVisible.set(true)" role="button" style="cursor:pointer">Privacy Policy</a>
     </p>
   </div>
+
+<p-dialog
+  [(visible)]="policyVisible"
+  header="Privacy Policy"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  styleClass="policy-dialog"
+  [style]="{ width: 'min(680px, 95vw)', maxHeight: '80vh' }"
+  [contentStyle]="{ overflowY: 'auto' }"
+>
+  <div class="policy-body">
+    <p>Last updated: June 2026</p>
+
+    <p>This privacy policy explains how Byte Me PC / Smartphone Repairs North East ("we", "us", "our") handles personal information collected through this website.</p>
+
+    <h3>Who we are</h3>
+    <p>Byte Me PC / Smartphone Repairs North East is a local electronics repair business based in Craghead, County Durham, DH9 6EB. Contact us at <a href="mailto:repairs@bytemepc.com">repairs&#64;bytemepc.com</a> or <a href="tel:07807174740">07807 174740</a>.</p>
+
+    <h3>What information we collect</h3>
+    <p>When you use the contact form we collect your name, phone number and/or email address, and a description of how we can help. We do not use cookies or any tracking on this website.</p>
+
+    <h3>How we use your information</h3>
+    <p>Your details are used solely to respond to your enquiry. They are sent directly to our inbox and are not stored in any database or third-party system beyond standard email.</p>
+
+    <h3>Legal basis</h3>
+    <p>We process your data on the basis of legitimate interest — to respond to your request. You can always contact us by phone if you prefer not to submit details online.</p>
+
+    <h3>Third-party services</h3>
+    <p><strong>Cloudflare</strong> — provides hosting and security. May process your IP address as part of routing traffic.</p>
+    <p><strong>Google Fonts</strong> — used for typography. Loading fonts from Google's servers may transmit your IP address to Google.</p>
+    <p><strong>Google Maps</strong> — the address link opens Google Maps in a new tab. No data is sent to Google unless you click it.</p>
+
+    <h3>Your rights</h3>
+    <p>Under UK GDPR you have the right to access, correct, or request deletion of any personal data we hold. You can also lodge a complaint with the <a href="https://ico.org.uk" target="_blank" rel="noopener">ICO</a>. To exercise your rights contact us at <a href="mailto:repairs@bytemepc.com">repairs&#64;bytemepc.com</a>.</p>
+  </div>
+
+  <ng-template #footer>
+    <p-button label="Close" variant="outlined" severity="secondary" (onClick)="policyVisible.set(false)" styleClass="dialog-close" />
+  </ng-template>
+</p-dialog>
+
 </footer>

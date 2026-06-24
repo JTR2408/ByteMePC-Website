@@ -32,9 +32,9 @@ export class ServicesComponent {
       title: 'Phone Repair',
       shortDesc: 'Fast repairs for cracked screens, batteries, and more.',
       fullDesc:
-        'Smashed screen, dead battery, water damage, or a charging port that won\'t work? We repair all major smartphone brands including Apple, Samsung, Google, and more — usually while you wait.',
+        'Smashed screen, dead battery, water damage, or a charging port that won\'t work? We repair all major smartphone brands including Apple, Samsung, Google, and more.',
       features: [
-        'Screen & display replacements',
+        'Screen replacements',
         'Battery replacements',
         'Charging port repairs',
         'Water damage treatment',
@@ -52,7 +52,6 @@ export class ServicesComponent {
         'Infected PC running slow, showing strange pop-ups, or locked by ransomware? We perform a thorough removal of all threats and set up real protection so it doesn\'t happen again.',
       features: [
         'Full system malware scan & removal',
-        'Ransomware recovery (where possible)',
         'Browser hijacker cleanup',
         'Security software setup',
         'Windows performance optimisation',
@@ -70,10 +69,10 @@ export class ServicesComponent {
       features: [
         'Screen replacements',
         'Keyboard & trackpad repairs',
-        'Motherboard diagnosis',
-        'Power jack & charging port repairs',
-        'Fan cleaning & thermal paste replacement',
-        'Boot & startup issues',
+        'Motherboard & component diagnosis',
+        'Power jack repairs',
+        'Fan cleaning & thermal paste service',
+        'Boot & BIOS issues',
       ],
     },
     {
@@ -100,12 +99,12 @@ export class ServicesComponent {
       fullDesc:
         'Cracked iPad screen, a sluggish Android tablet, or a charging port giving up? We repair iPads, Samsung Galaxy Tabs, and other popular tablets — getting them back to full working order fast.',
       features: [
-        'iPad & Android tablet screen repairs',
+        'iPad & Android Screen replacements',
         'Battery replacements',
-        'Charging port & connector fixes',
-        'Home button & Face ID repairs',
-        'Software & OS issues',
-        'Back glass replacements',
+        'Charging port repairs',
+        'Water damage treatment',
+        'Camera & speaker repairs',
+        'Button & microphone fixes',
       ],
     },
     {
@@ -114,7 +113,7 @@ export class ServicesComponent {
       title: 'Custom PC Builds',
       shortDesc: 'Bespoke gaming rigs and workstations built to your spec.',
       fullDesc:
-        'Whether you want a high-performance gaming PC, a silent home workstation, or a compact HTPC, we spec and build it to your requirements and budget. Every build is stress-tested before delivery.',
+        'Whether you want a high-performance gaming PC, a silent home workstation, or a compact HTPC, we spec and build it to your requirements and budget. Every build is stress-tested before completion.',
       features: [
         'Free component advice & budgeting',
         'Gaming & workstation builds',
@@ -130,5 +129,12 @@ export class ServicesComponent {
   openDialog(service: Service): void {
     this.activeService.set(service);
     this.dialogVisible.set(true);
+  }
+
+  getQuote(): void {
+    this.dialogVisible.set(false);
+    setTimeout(() => {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    }, 150);
   }
 }

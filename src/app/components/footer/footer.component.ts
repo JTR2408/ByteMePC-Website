@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { DividerModule } from 'primeng/divider';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [DividerModule],
+  imports: [DividerModule, DialogModule, ButtonModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
   readonly year = new Date().getFullYear();
+  policyVisible = signal(false);
 
   readonly links = [
     { label: 'Services', anchor: 'services' },
