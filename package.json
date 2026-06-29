@@ -23,6 +23,7 @@
     "@angular/ssr": "^21.2.1",
     "@primeng/themes": "^21.0.4",
     "@primeuix/themes": "^2.0.3",
+    "angular": "^1.8.3",
     "express": "^5.1.0",
     "nodemailer": "^9.0.0",
     "primeicons": "^7.0.0",

@@ -35,10 +35,12 @@
         {{ link.label }}
       </a>
     }
-    <p-button
-      label="Get a Quote"
-      styleClass="w-full mt-4"
-      (onClick)="scrollTo('contact')"
-    />
+    <div class="mobile-cta-wrap">
+      <p-button
+        label="Get a Quote"
+        styleClass="w-full mt-4"
+        (onClick)="scrollTo('contact')"
+      />
+    </div>
   </nav>
 </p-drawer>

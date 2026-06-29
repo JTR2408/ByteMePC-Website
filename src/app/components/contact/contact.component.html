@@ -19,11 +19,11 @@
           <li>
             <span class="cd-icon"><i [class]="'pi ' + item.icon"></i></span>
             <div class="cd-body">
-              <span class="cd-label">{{ item.label }}</span>
+              <div class="cd-label">{{ item.label }}</div>
               @if (item.href) {
                 <a [href]="item.href" class="cd-value link" [target]="item.href!.startsWith('https') ? '_blank' : '_self'" rel="noopener">{{ item.value }}</a>
               } @else {
-                <span class="cd-value">{{ item.value }}</span>
+                <div class="cd-value">{{ item.value }}</div>
               }
             </div>
           </li>

@@ -93,7 +93,9 @@
 
 /* Mobile drawer */
 ::ng-deep .mobile-drawer {
-  .p-drawer-header { background: var(--bm-dark); color: var(--bm-white); }
+  background: var(--bm-dark) !important;
+  border: none !important;
+  .p-drawer-header { background: var(--bm-dark); color: var(--bm-white); padding-left: 1rem; }
   .p-drawer-content { background: var(--bm-dark); padding: 1.5rem; }
 }
 
@@ -101,6 +103,10 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+}
+
+.mobile-cta-wrap {
+  padding-left: 0.60rem;
 }
 
 .mobile-link {

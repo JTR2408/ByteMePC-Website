@@ -20,7 +20,10 @@ app.use((req, res, next) => {
   next();
 });
 
-const angularApp = new AngularNodeAppEngine();
+const angularApp = new AngularNodeAppEngine({
+  allowedHosts: ['bytemepc.com', 'www.bytemepc.com', 'localhost', 'localhost:4000'],
+  trustProxyHeaders: true,
+});
 
 const GOOGLE_API_KEY = process.env['GOOGLE_PLACES_API_KEY'] ?? '';
 const GOOGLE_PLACE_ID = process.env['GOOGLE_PLACE_ID'] ?? '';
